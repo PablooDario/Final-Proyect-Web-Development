@@ -5,3 +5,8 @@
     box-sizing: border-box;
     font-size: 62.5%;
 }*/
+
+.names {
+    font-size: 16px !important;
+    font-weight: 600;
+}
