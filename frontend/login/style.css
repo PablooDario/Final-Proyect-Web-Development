@@ -29,8 +29,9 @@ main{
     height: 500px;
     align-items: center;
     margin: auto;
-    background-color: rgba(10, 10, 10, 0.5);
+    background-color: rgba(15, 15, 15, 0.5);
     padding: 10px ;
+    backdrop-filter: blur(10px);
 }
 
 form h2{
