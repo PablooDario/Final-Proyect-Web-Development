@@ -8,7 +8,7 @@
     <meta name="keywords" content="formulario, escom, ingeniería, universidad, profesores, clases, licenciatura">
 
     <title>Registro de Materias</title>
-    
+    <link rel="stylesheet" href="style.css">
     <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
 </head>
 <body>
@@ -22,21 +22,20 @@
         </nav>
     </header>
     <main>
-        <section class="container">
-            <h2>Ingresa tus datos</h2>
-            <br>
-            <form action="POST">
+
+        <section class="container login">
+            <h2 style="text-align: center;">Iniciar Sesion</h2>
+            <form action="POST">                    
                 <label>
-                    Numero de boleta: <input type="number" name="boleta" id="blt">
+                    Numero de boleta: <input type="text" name="boleta" id="blt" placeholder="Ingresa tu boleta">
                 </label>
                 <label>
-                    Contrasena: <input type="password" name="password" id="pwd">
+                    Contrasena: <input type="password" name="password" id="pwd" placeholder="Ingresa tu contraseña">
                 </label>
-                <input type="submit" value="Continuar" class="btn-large waves-effect">
+                <input type="submit" value="Iniciar" class="btn-large waves-effect" style="text-align: center;">
             </form>
-            <br>
-            <br>
         </section>
+        
     </main>
     <footer class="page-footer teal">
         <section class="container">
@@ -50,7 +49,6 @@
                 <li>Ezequiel</li>
             </ul>
         </section>
-        <br>
     </footer>
     <script type="text/javascript" src="./js/materialize.min.js"></script>
     <script src="./js/jquery.js"></script>
