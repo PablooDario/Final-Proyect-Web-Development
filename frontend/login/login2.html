@@ -22,33 +22,33 @@
                     <p>Herramienta informática diseñada para apoyar en la elección y realización de actividaes escolares para el semestre próximo, diseñado para profesores y administradores</p>
                 </div>
             </div>
-
+            <div class="container boton1" style="display: block;">
+                <button class="btn despl">INCIAR SESION</button>
+            </div>
             <div class="container log">
-
-                    <div class="row row2">
-                        <form id="Login" autocomplete="off" action="POST">
-                            <h2 style="text-align: center;">Iniciar Sesion</h2>
-                            <div class="col-sm-12 col-md-12 col-lg-12 input2">
-                                <label for="boleta">Boleta</label><br>
-                                <input type="text" id="boleta" name="boleta" class="input1">
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 input2">
-                                <label for="contrasena">Contraseña</label><br>
-                                <input type="password" id="contrasena" name="contrasena" class="input1"><br>
-                                <!--
-                                    <label>
-                                    <input type="checkbox" id="verContrasena">
-                                    <span>Ver contraseña</span>
-                                </label>
-                                -->
-                                
-                            </div>
-                            <div>
-                                <button type="submit" class="btn">Entrar</button>
-                            </div>
-                        </form>
+                <div class="row row2">
+                    <form id="Login" autocomplete="off" action="POST">
+                        <h2 style="text-align: center;">Iniciar Sesion</h2>
+                        <div class="col-sm-12 col-md-12 col-lg-12 input2">
+                            <label for="boleta">Boleta</label><br>
+                            <input type="text" id="boleta" name="boleta" class="input1" placeholder="Ingresa tu boleta">
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 input2">
+                            <label for="contrasena">Contraseña</label><br>
+                            <input type="password" id="contrasena" name="contrasena" class="input1" placeholder="Ingresa tu contraseña"><br><br>                               
+                            <label>
+                                <input type="checkbox" id="verContrasena">
+                                <span>Ver contraseña</span>
+                            </label>
+                        </div>
+                        <div col-sm-12 col-md-12 col-lg-12>
+                            <button type="submit" class="btn">Entrar</button>
+                        </div>
+                    </form>
+                    <div col-sm-12 col-md-12 col-lg-12>
+                        <button class="btn cancel">Cancelar</button>
                     </div>
-
+                </div>
             </div>
                 
         </main>
