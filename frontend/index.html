@@ -1,49 +1,63 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Una plataforma web que permite el registro de clases para los docentes de la Escuela Superior de Cómputo">
-    <meta name="keywords" content="formulario, escom, ingeniería, universidad, profesores, clases, licenciatura">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Una plataforma web que permite el registro de clases para los docentes de la Escuela Superior de Cómputo">
+        <meta name="keywords" content="formulario, escom, ingeniería, universidad, profesores, clases, licenciatura">
 
-    <title>ESCOM</title>
-    
-    <link type="text/css" rel="stylesheet" href="./css/materialize.css"  media="screen,projection"/>
-</head>
-<body>
-    <header>
-        <nav class="teal lighten-2">
-            <ul>
-                <li><a href="./index.html" target="_self" rel="noopener noreferrer">Inicio</a></li>
-                <li><a href="./login/login.html" target="_self" rel="noopener noreferrer">Login</a></li>
-                <li><a href="./subjects/about.html" target="_self" rel="noopener noreferrer">Acerca de</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="container">
-            <figure>
-                <img class="responsive-img" src="./assets/login.jpg" alt="Imagen alusiva a un inicio de sesion">
-            </figure>
-            <h1 class="center">Inicia Sesion</h1>
-        </section>
-    </main>
-    <footer class="page-footer teal">
-        <section class="container">
-            <h3 class="center">Equipo</h3>
-            <ul>
-                <li>Daniel Armas Ramírez</li>
-                <li>Pablo Darío Juárez</li>
-                <li>Ian Josué López Sánchez</li>
-                <li>Diego Alberto Hernández Barrera</li>
-                <li>Diego Juárez Saucedo</li>
-                <li>Ezequiel</li>
-            </ul>
-        </section>
-        <br>
-    </footer>
-    <script type="text/javascript" src="./js/materialize.min.js"></script>
-    <script src="./js/jquery.js"></script>
-</body>
+        <title>Registro de Materias</title>
+
+        <link rel="stylesheet" href="../frontend/css/libs/gob.min.css">
+        <link rel="stylesheet" href="../frontend/css/style.css">
+        
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <div class="desc row">
+                    <h1 style="text-align: center;">BIENVENIDO DOCENTE</h1>
+                    <h3 style="text-align: center;">ESCUELA SUPERIOR DE CÓMPUTO</h3>
+                    <p>Herramienta informática diseñada para apoyar en la elección y realización de actividaes escolares para el semestre próximo, diseñado para profesores y administradores</p>
+                </div>
+            </div>
+            <div class="container boton1" style="display: block;">
+                <button class="btn despl">INCIAR SESION</button>
+            </div>
+            <div class="container log">
+                <div class="row row2">
+                    <form id="Login" autocomplete="off" action="POST">
+                        <h2 style="text-align: center;">Iniciar Sesion</h2>
+                        <div class="col-sm-12 col-md-12 col-lg-12 input2">
+                            <label for="boleta">Boleta</label><br>
+                            <input type="text" id="boleta" name="boleta" class="input1" placeholder="Ingresa tu boleta">
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 input2">
+                            <label for="contrasena">Contraseña</label><br>
+                            <input type="password" id="contrasena" name="contrasena" class="input1" placeholder="Ingresa tu contraseña"><br><br>                               
+                            <label>
+                                <input type="checkbox" id="verContrasena">
+                                <span>Ver contraseña</span>
+                            </label>
+                        </div>
+                        <div col-sm-12 col-md-12 col-lg-12>
+                            <button type="submit" class="btn">Entrar</button>
+                        </div>
+                    </form>
+                    <div col-sm-12 col-md-12 col-lg-12>
+                        <button class="btn cancel">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+                
+        </main>
+
+        <script src="../frontend/js/libs/gob.min.js"></script>
+        <!--<script src="../js/gob.min.js"></script>-->
+        <script src="../frontend/js/libs/jquery-3.6.4.min.js"></script>
+        <script src="../frontend/js/libs/justValidate.js"></script>
+        <script src="../frontend/js/libs/sweetAlert.min.js"></script>
+        <script src="../frontend/js/index.js"></script>
+    </body>
 </html>
