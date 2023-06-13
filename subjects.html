@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Materias</title>
+    
+  <link rel="stylesheet" href="./css/libs/materialize.min.css">
+  <link rel="stylesheet" href="./css/libs/materialize.css">
+  <link rel="stylesheet" href="./css/subjects.css">
+</head>
+<body>
+  <header>
+
+  </header>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m2 l2"><h4>Carrera</h4></div>
+        <div class="col s12 m2 l2"><h4>Plan</h4></div>
+        <div class="col s12 m3 l3"><h4>Departamento</h4></div>
+        <div class="col s12 m5 l5"><h4>Materia</h4></div>
+      </div>
+      <form id="formRegistro" autocomplete="off">
+        <div class="row">
+
+          <div class="col s12 m2 l2 input-field">
+            <select id="carrera" name="carrera">
+              <option value="" disabled selected class="disabledselect">Carrera</option>
+              <option value="ISC">ISC</option>
+              <option value="LCD">LCD</option>
+              <option value="IIA">IIA</option>
+            </select>
+          </div>
+
+          <div class="col s12 m2 l2 input-field">
+            <select id="plan" name="plan">
+              <option value="" disabled selected class="disabledselect">Plan</option>
+              <option value="2009">2009</option>
+              <option value="2020">2020</option>
+            </select>
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <select id="departamento" name="departamento">
+              <option value="" disabled selected class="disabledselect">Departamento</option>
+              <option value="Básicas">Básicas</option>
+            </select>
+          </div>
+
+          <div class="col s12 m5 l5 input-field">
+            <select id="Materia" name="Materia">
+              <option value="" disabled selected class="disabledselect">Materia</option>
+              <option value="2009">2009</option>
+              <option value="2020">2020</option>
+            </select>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="./js/libs/jquery-3.6.4.min.js"></script>
+  <script src="./js/libs/materialize.min.js"></script>
+  <script src="./js/libs/justValidate.js"></script>
+  <script src="./js/libs/sweetAlert.min.js"></script>
+  <script src="./js/subjects.js"></script>
+</body>
+</html>

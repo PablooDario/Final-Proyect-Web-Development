@@ -1,0 +1,11 @@
+.row{
+    border: 3px solid red;
+}
+
+.col{
+    border: blue solid 2px;
+}
+
+.disabledselect{
+    color: gray;
+}
