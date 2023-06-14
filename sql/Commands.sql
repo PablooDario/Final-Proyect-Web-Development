@@ -538,7 +538,6 @@ insert into usuario (IDUser, Nombre, APP, APM, Correo, Depto, Pwd, Encuesta) VAL
 
 ------------------------------ACTIVIDADES---------------------------
 insert into actividad (IDact, descripcion) VALUES
-("101", "PREPARACIÓN DE CLASES"),
 ("102", "PREPARACIÓN DE CLASES"),
 ("103", "ATENCIÓN A ALUMNOS"),
 ("104", "ELABORACIÓN DE EXÁMENES"),
