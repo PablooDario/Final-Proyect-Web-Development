@@ -1,0 +1,54 @@
+.headeer{
+    width: 100%;
+    background-color:#122d86;
+    height: 140px;
+    padding: 0px;
+    margin: 0px;
+}
+
+@media (max-width: 1200px) {
+    .escm, .logoESCOM {
+      display: none;
+    }
+}
+
+.logoESCOM{
+    position: relative;
+    right: 70px;
+}
+
+.explicacion{
+    padding: 10px 20px 10px 20px;
+}
+
+.explicacion2{
+    text-align: justify;
+    padding: 5px 30px 5px 30px;
+}
+
+.expMat, .expAct{
+    margin-top: 20px;
+    background-color: rgba(18, 45, 134, 0.2);
+}
+
+.ESCOM{
+    color: white;
+}
+
+.container{
+    padding: 0px;
+    width: 85%;
+}
+
+.footeer{
+    width: 100%;
+    background-color: #122d86;
+    height: 120px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.MaxM{
+    margin: 15px;
+    color: black;
+}

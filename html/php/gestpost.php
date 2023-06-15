@@ -3,4 +3,5 @@
 		$asignacion = "\$".$nombre_campo."='".trim($valor)."';"; 
 		eval($asignacion); 
   }
-?>
+  #Obtiene los post que se envian, sirve como funcion.
+?> 

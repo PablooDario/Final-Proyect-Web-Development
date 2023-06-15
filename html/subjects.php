@@ -1,12 +1,48 @@
+<?php
+  include("./../connect/bd.php");
+  $i = 0; $t = 0; $h=0;
+  $sql = "SELECT * FROM `materia`";
+  if($resp = $mysqli->query($sql)){
+    $resp->data_seek(0);
+    while($fila = $resp->fetch_assoc()){
+      $id[] = $fila['IDMat'];
+      $name[] = $fila['nombre'];
+      $pro[] = $fila['programa'];
+      $plan[] = $fila['plan'];
+      $i++;
+    }
+    $resp->free();
+  }
+
+  $sql = "SELECT `academia` FROM `materia` group by `academia`";
+  if($resp = $mysqli->query($sql)){
+    $resp->data_seek(0);
+    while($fila = $resp->fetch_assoc()){
+      $aca[] = $fila['academia'];
+      $t++;
+    }
+    $resp->free();  
+  }
+
+  $sql = "SELECT * FROM `actividad`";
+  if($resp = $mysqli->query($sql)){
+    $resp->data_seek(0);
+    while($fila = $resp->fetch_assoc()){
+      $idact[] = $fila['IDact'];
+      $descri[] =$fila['descripcion'];
+      $h++;
+    }
+    $resp->free();  
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Materias</title>
-    
   <link rel="stylesheet" href="./css/libs/materialize.min.css">
   <link rel="stylesheet" href="./css/libs/materialize.css">
   <link rel="stylesheet" href="./css/subjects.css">
@@ -64,20 +100,22 @@
               <select id="plan1" name="plan1">
                 <option value="" disabled selected class="disabledselect">Plan</option>
                 <option value="2020">2020</option>
+                <option value="2009">2009</option>
               </select>
             </div>
             <!--Desplegar las opciones de departamento según la carrera que eligio y el plan (hacer una consulta sql  de ahí desplegar las opciones?? )  solo deje Básicas como prueba-->
             <div class="col s12 m3 l3 input-field">
               <select id="departamento1" name="departamento1">
                 <option value="" disabled selected class="disabledselect">Departamento</option>
-                <option value="Básicas">Básicas</option>
+                <?php for($i=0;$i<$t;$i++): ?>
+                <option value="<?= $aca[$i] ?>"><?= $aca[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
             <!--Desplegar las opciones según la carrera, plan y departamento que eligió, solo deje Algebra lineal como prueba-->
             <div class="col s12 m4 l4 input-field">
               <select id="materia1" name="materia1">
                 <option value="" disabled selected class="disabledselect">Materia</option>
-                <option value="Álgebra Lineal">Álgebra Lineal</option>
               </select>
             </div>
           </div>
@@ -100,20 +138,22 @@
               <select id="plan2" name="plan2">
                 <option value="" disabled selected class="disabledselect">Plan</option>
                 <option value="2020">2020</option>
+                <option value="2009">2009</option>
               </select>
             </div>
     
             <div class="col s12 m3 l3 input-field">
               <select id="departamento2" name="departamento2">
                 <option value="" disabled selected class="disabledselect">Departamento</option>
-                <option value="Básicas">Básicas</option>
+                <?php for($i=0;$i<$t;$i++): ?>
+                <option value="<?= $aca[$i] ?>"><?= $aca[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
     
             <div class="col s12 m4 l4 input-field">
               <select id="materia2" name="materia2">
                 <option value="" disabled selected class="disabledselect">Materia</option>
-                <option value="Álgebra Lineal">Álgebra Lineal</option>
               </select>
             </div>
           </div>
@@ -133,20 +173,22 @@
               <select id="plan3" name="plan3">
                 <option value="" disabled selected class="disabledselect">Plan</option>
                 <option value="2020">2020</option>
+                <option value="2009">2009</option>
               </select>
             </div>
       
             <div class="col s12 m3 l3 input-field">
               <select id="departamento3" name="departamento3">
                 <option value="" disabled selected class="disabledselect">Departamento</option>
-                <option value="Básicas">Básicas</option>
+                <?php for($i=0;$i<$t;$i++): ?>
+                <option value="<?= $aca[$i] ?>"><?= $aca[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
         
             <div class="col s12 m4 l4 input-field">
               <select id="materia3" name="materia3">
                 <option value="" disabled selected class="disabledselect">Materia</option>
-                <option value="Álgebra Lineal">Álgebra Lineal</option>
               </select>
             </div>
           </div>
@@ -168,20 +210,22 @@
               <select id="plan4" name="plan4">
                 <option value="" disabled selected class="disabledselect">Plan</option>
                 <option value="2020">2020</option>
+                <option value="2009">2009</option>
               </select>
             </div>
       
             <div class="col s12 m3 l3 input-field">
               <select id="departamento4" name="departamento4">
                 <option value="" disabled selected class="disabledselect">Departamento</option>
-                <option value="Básicas">Básicas</option>
+                <?php for($i=0;$i<$t;$i++): ?>
+                <option value="<?= $aca[$i] ?>"><?= $aca[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
         
             <div class="col s12 m4 l4 input-field">
               <select id="materia4" name="materia4">
                 <option value="" disabled selected class="disabledselect">Materia</option>
-                <option value="Álgebra Lineal">Álgebra Lineal</option>
               </select>
             </div>
           </div>
@@ -212,20 +256,22 @@
               <select id="planE1" name="planE1">
                 <option value="" disabled selected class="disabledselect">Plan</option>
                 <option value="2020">2020</option>
+                <option value="2009">2009</option>
               </select>
             </div>
       
             <div class="col s12 m3 l3 input-field">
               <select id="departamentoE1" name="departamentoE1">
                 <option value="" disabled selected class="disabledselect">Departamento</option>
-                <option value="Básicas">Básicas</option>
+                <?php for($i=0;$i<$t;$i++): ?>
+                <option value="<?= $aca[$i] ?>"><?= $aca[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
       
             <div class="col s12 m4 l4 input-field">
               <select id="materiaE1" name="materiaE1">
                 <option value="" disabled selected class="disabledselect">Materia</option>
-                <option value="Álgebra Lineal">Álgebra Lineal</option>
               </select>
             </div>
           </div>
@@ -247,20 +293,22 @@
               <select id="planE2" name="planE2">
                 <option value="" disabled selected class="disabledselect">Plan</option>
                 <option value="2020">2020</option>
+                <option value="2009">2009</option>
               </select>
             </div>
         
             <div class="col s12 m3 l3 input-field">
               <select id="departamentoE2" name="departamentoE2">
                 <option value="" disabled selected class="disabledselect">Departamento</option>
-                <option value="Básicas">Básicas</option>
+                <?php for($i=0;$i<$t;$i++): ?>
+                <option value="<?= $aca[$i] ?>"><?= $aca[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
         
             <div class="col s12 m4 l4 input-field">
               <select id="materiaE2" name="materiaE2">
                 <option value="" disabled selected class="disabledselect">Materia</option>
-                <option value="Álgebra Lineal">Álgebra Lineal</option>
               </select>
             </div>
           </div>
@@ -322,7 +370,9 @@
             <div class="col s7 m7 l7">
               <select id="actividad3" name="actividad3">
                 <option value="" disabled selected class="disabledselect">Actividad</option>
-                <option value="A3">Actividad2</option>
+                <?php for($i=0;$i<$h;$i++): ?>
+                <option value="<?= $idact[$i] ?>"><?= $descri[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
             <div class="col s4 m4 l4">
@@ -335,7 +385,9 @@
             <div class="col s7 m7 l7">
               <select id="actividad4" name="actividad4">
                 <option value="" disabled selected class="disabledselect">Actividad</option>
-                <option value="A4">Actividad4</option>
+                <?php for($i=0;$i<$h;$i++): ?>
+                <option value="<?= $idact[$i] ?>"><?= $descri[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
             <div class="col s4 m4 l4">
@@ -348,7 +400,9 @@
             <div class="col s7 m7 l7">
               <select id="actividad5" name="actividad5">
                 <option value="" disabled selected class="disabledselect">Actividad</option>
-                <option value="A5">Actividad5</option>
+                <?php for($i=0;$i<$h;$i++): ?>
+                <option value="<?= $idact[$i] ?>"><?= $descri[$i] ?></option>
+                <?php endfor;?>
               </select>
             </div>
             <div class="col s4 m4 l4">

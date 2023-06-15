@@ -1,6 +1,65 @@
-//Para que funcionen los select option con materialize
-$(document).ready(function() {
+$(document).ready(function(){
+    $.ajax({
+      url:"./php/validator.php",
+      method:"POST",
+      data: "login=1",
+      cache:false,
+      success:(respAX)=>{
+        let AX = JSON.parse(respAX);
+        if(AX.cod == 0)
+        Swal.fire({
+          title:"ESCOM - IPN",
+          text:AX.msj,
+          icon:AX.icono,
+          didDestroy:()=>{
+              location.href = AX.pathto;
+          }
+        }); // sweetAlert/
+      }
+    }); // ajax/
+
     $('select').formSelect();
+
+    function cargaMat(num){
+        var academia = $('#departamento'+num).val();
+        var plan = $('#plan'+ num).val();
+        var programa = $('#carrera' + num).val();
+        $.ajax({
+        url: './php/getsubs.php',
+        method: 'POST',
+        data: { academia: academia, plan: plan, programa: programa},
+        success: function(respAX){
+            let AX = JSON.parse(respAX);
+            const select = document.querySelector('select#materia'+num);
+            console.log(select);
+            for(var i=0;i<AX.counter;i++)
+            {
+                let newOption = new Option(AX.name[i], AX.id[i]);
+                select.appendChild(newOption);
+                $('select').formSelect();
+
+            }
+        }
+        });
+    }
+    $('select#departamento1').on('change', function() {
+        cargaMat(1);
+    });
+    $('select#departamento2').on('change', function() {
+        cargaMat(2);
+    });
+    $('select#departamento3').on('change', function() {
+        cargaMat(3);
+    });
+    $('select#departamento4').on('change', function() {
+        cargaMat(4);
+    });
+    $('select#departamentoE1').on('change', function() {
+        cargaMat('E1');
+    });
+    $('select#departamentoE2    ').on('change', function() {
+        cargaMat('E2');
+    });
 });
 
 //Display de materias y actividades (boton de continuar y regresar)
