@@ -1,8 +1,7 @@
-
 function desplegar()
 {
-  document.querySelector("#boleta").value="";
-  document.querySelector("#contrasena").value="";
+  document.querySelector("#correo").value="";
+  document.querySelector("#pwd").value="";
   let login=document.querySelector(".log");
   let inicio=document.querySelector(".boton1");
   if(inicio.style.display==="block")
@@ -21,7 +20,7 @@ document.querySelector(".cancel").addEventListener("click", desplegar)
 
 $(document).ready(()=>{
   function verContrasena() {
-    var x = document.getElementById("contrasena");
+    var x = document.getElementById("pwd");
     if (x.type === "password") {
       x.type = "text";
     } else {
@@ -31,40 +30,38 @@ $(document).ready(()=>{
   $("input#verContrasena").on("click",verContrasena);
 
   const validarLogin = new JustValidate("form#Login");
-  validarLogin.addField("#boleta",[
+  validarLogin.addField(document.querySelector('#correo'),[
     {
       rule:"required",
-      errorMessage:"Ingresa tu boleta",
-      color:'white'
+      errorMessage:"Ingresa tu correo",
     },
-    /*{
-      rule:"integer",
-      errorMessage:"Deben ser solo números"
-    },*/
+    {
+      rule:"email"
+    },
     {
       rule:"minLength",
-      value:8,
+      value:5,
       errorMessage:"Mínimo 8 digitos"
     },
     {
       rule:"maxLength",
-      value:10,
+      value:20,
       errorMessage:"Máximo 10 digitos"
     }
-  ]).addField("#contrasena",[
+  ]).addField(document.querySelector('#pwd'),[
     {
       rule:"required",
       errorMessage:"Falta tu contraseña"
-    },
+    } /* ,
     {
       rule:"password",
       errorMessage:"Mínimo 8 caracteres, una letra, un número"
-    }
+    } */
   ]).onSuccess(()=>{
     $.ajax({
-      url:"./php/index_AX.php",
+      url:"./php/index.php",
       method:"POST",
-      data:$("form#formLogin").serialize(),
+      data:$("form#Login").serialize(),
       cache:false,
       success:(respAX)=>{
         let AX = JSON.parse(respAX);
@@ -76,7 +73,7 @@ $(document).ready(()=>{
             if(AX.cod == 0)
               location.reload();
             else
-              location.href = "./php/alumno.php";
+              location.href = AX.pathto;
           }
         }); // sweetAlert/
       }
