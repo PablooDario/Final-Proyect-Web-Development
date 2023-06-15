@@ -1,0 +1,85 @@
+body{
+    padding: 0px;
+}
+main{
+    height: 950px;
+    background-image: url(../img/ESCOM.png);
+    color: white;
+}
+
+.desc{
+    margin-top: 50px;
+    padding-left: 8px;
+    width: 100%;
+    text-align: justify;
+    color: white;
+    font-weight: 500;
+}
+.boton1{
+    width: 70%;
+    background-color: rgba(59, 129, 204, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+}
+
+.despl{
+    margin: 100px;
+}
+
+.log{
+    /*display: flex;*/
+    display: none;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row2{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 550px;
+    align-items: center;
+    margin: auto;
+    background-color: rgba(59, 129, 204, 0.1);
+    padding: 10px ;
+    backdrop-filter: blur(10px);
+}
+
+form h2{
+    margin: 30px;
+}
+
+.input2
+{
+    margin-bottom: 40px;
+}
+
+.input1{
+    height: 40px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: rgba(3, 34, 68, 0.3);
+    color:white;
+    padding: 8px;
+}
+
+.input1::placeholder{
+    color:wheat;
+    padding-left: 8px;
+}
+
+.btn{
+    background-color:#4D92DF; 
+    width:100%;
+    margin: 10px auto;
+    border: none;
+    outline: none;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: rgba(3, 2, 75, 0.856);
+    color: white;
+}
