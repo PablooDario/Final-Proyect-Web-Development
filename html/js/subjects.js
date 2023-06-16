@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){ //Valida si el usuario ha iniciado sesion
     $.ajax({
       url:"./php/validator.php",
       method:"POST",
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
     $('select').formSelect();
 
-    function cargaMat(num){
+    function cargaMat(num){ //Carga el plan, la carrera y la academia y descarga las materias que pertenezcan a ese campo
         var academia = $('#departamento'+num).val();
         var plan = $('#plan'+ num).val();
         var programa = $('#carrera' + num).val();
@@ -111,14 +111,26 @@ function sumHoras()
     //Si el numero de horas es menor a 22, mayor a 1 y selecciono por lo menos 1 materia, sale un sweetalert
     if (sum>1 && sum<= 22 && mat1!=="") 
     {
-        Swal.fire({
-        title: 'Registro Completo',
-        text: 'Haz finalizado tu registro. ¡Gracias!',
-        icon: 'success',
-        didDestroy:()=>{
-              location.href = "https://www.escom.ipn.mx/";
-        }
-        });
+        $.ajax({
+            url:"./php/upsubs.php",
+            method:"POST",
+            data:$("form#Login").serialize(),
+            cache:false,
+            success:(respAX)=>{
+              let AX = JSON.parse(respAX);
+              Swal.fire({
+                title:"ESCOM - IPN",
+                text:AX.msj,
+                icon:AX.icono,
+                didDestroy:()=>{
+                  if(AX.cod == 0)
+                    location.reload();
+                  else
+                    location.href = AX.pathto;
+                }
+              });
+            }
+          });
     } 
     //Si hizo algo mal
     else 
