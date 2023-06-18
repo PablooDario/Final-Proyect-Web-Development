@@ -1,0 +1,19 @@
+Options All -Indexes
+ErrorDocument 403 http://localhost/Final-Proyect-Web-Development/html/index?=403
+ErrorDocument 404 http://localhost/Final-Proyect-Web-Development/html/index?=404
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+#RewriteRule ^([a-z]+)/?$ $1.php [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+#RewriteRule ^([a-z]+)/?$ $1.html [NC]
+
+Header always append X-Frame-Options sameorigin
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Content-Type-Options nosniff
+Header set Referrer-Policy "no-referrer"
+Header always set Feature-Policy "fullscreen 'none'; microphone 'none'"
