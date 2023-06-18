@@ -1,9 +1,9 @@
 <?php 
-    include("./../../connect/bd.php");
-    include("./gestpost.php");
-    $sessionTime = 60*60*24*14;
-    session_set_cookie_params(time() + $sessionTime, "/", 'visualcmj.com', isset($_SERVER["HTTP"]), true);
-    session_start();
+    include("./../../connect/bd.php"); #Conecta con la base de datos
+    include("./gestpost.php"); 
+    $sessionTime = 60*60*8; #Establece la duración de la session a 8 horas en caso de que el usuario no cierre su session
+    session_set_cookie_params(time() + $sessionTime, "/", 'visualcmj.com', isset($_SERVER["HTTP"]), true); 
+    session_start(); #Inicia la sesion
     $respAX = [];
     if(isset($_SESSION['user']) && isset($_SESSION['auth']) && isset($_SESSION['path'])){
         $respAX["cod"] = 1;
@@ -17,17 +17,18 @@
         if($numFilasRes == 1){
             $infCheckLogin = mysqli_fetch_row($resp);
             if($infCheckLogin[7] == 0) $respAX["pathto"] = 'subjects';
-            if($infCheckLogin[7] == 1) $respAX["pathto"] = 'home';
+            if($infCheckLogin[7] == 1) $respAX["pathto"] = 'pdf';
             if($infCheckLogin[7] == 2) $respAX["pathto"] = 'admin'; 
             $respAX["cod"] = 1;
             $respAX["msj"] = "Hola! Bienvenido $infCheckLogin[1] $infCheckLogin[2].";
             $respAX["icono"] = "success";
             $_SESSION["user"] = $infCheckLogin[1].' '.$infCheckLogin[2];
-            $_SESSION["auth"] = true;
+            $_SESSION["auth"] = $infCheckLogin[7];
             $_SESSION["path"] = $respAX["pathto"];
+            $_SESSION["pos"] = $infCheckLogin[0];
           }else{
             $respAX["cod"] = 0;
-            $respAX["msj"] = "$correo - $pwd  ";
+            $respAX["msj"] = "Ocurrio un error";
             $respAX["icono"] = "error";
             $respAX["pathto"] = "index";
           }

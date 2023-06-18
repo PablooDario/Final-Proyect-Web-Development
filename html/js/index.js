@@ -45,8 +45,8 @@ $(document).ready(()=>{
     },
     {
       rule:"maxLength",
-      value:20,
-      errorMessage:"Máximo 10 digitos"
+      value:40,
+      errorMessage:"Máximo 40 digitos"
     }
   ]).addField(document.querySelector('#pwd'),[
     {
