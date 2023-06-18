@@ -28,7 +28,6 @@
   <script src="./js/libs/materialize.min.js"></script>
   <script src="./js/libs/justValidate.js"></script>
   <script src="./js/libs/sweetAlert.min.js"></script>
-  <script src="./js/registro.js"></script>
   <meta name='viewport' content='width=device-width,initial-scale=1.0'/>
   <meta name="description" content="">
   <meta name="keywords" content="">
