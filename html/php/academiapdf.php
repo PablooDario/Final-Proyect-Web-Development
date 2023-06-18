@@ -58,8 +58,8 @@
             <table>
             <thead>
                 <tr>
-                <th>Profesor</th>
                 <th>Materia</th>
+                <th>Profesor</th>
                 </tr>
             </thead>
             <tbody>';

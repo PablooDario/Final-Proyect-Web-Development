@@ -26,7 +26,6 @@
   <script src="./js/libs/materialize.min.js"></script>
   <script src="./js/libs/justValidate.js"></script>
   <script src="./js/libs/sweetAlert.min.js"></script>
-  <script src="./js/registro.js"></script>
   <meta name='viewport' content='width=device-width,initial-scale=1.0'/>
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -34,12 +33,17 @@
 <body>
   <div style="position: relative; left: 0; top: 0; background-color: #122d86; width: 100%; height: 10vh;">
     <span></span>
+    <div class="col s12 m6 input-field" style="width: 30%;">
+      <a href="./admin" class="btn blue" style="width:100%;">
+        Volver
+      </a>
+    </div>
   </div>
   <main class="valign-wrapper">
     <div class="container">
       <div class="row">
         <h2>Generar PDFs</h2>
-        <p>Aqui puedes generar un pdf con la informacion resumida de las academia y de todos los procesos</p>
+        <p>Aqui puedes generar un pdf con la informacion resumida de las academia, si se genera en blanco es que no ha sido elegida ninguna materia</p>
     </div>      
     <div class="row">
         <div class="col s7 m7 l7">

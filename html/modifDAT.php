@@ -1,3 +1,17 @@
+<?php 
+  include('./../connect/bd.php');
+  $sql = "SELECT `IDUser` FROM `usuario` WHERE `Encuesta` != '2'";
+  $resp = $mysqli->query($sql);
+  $t = 0;
+  if($resp){
+    $resp->data_seek(0);
+    while($fila = $resp->fetch_assoc()){
+      $id[] = $fila['IDUser'];
+      $t++;
+    }
+  }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +33,18 @@
   <meta name="keywords" content="">
 </head>
 <body>
+    <datalist id="ids_pos">
+      <?php for($i=0;$i<$t;$i++): ?>
+      <option value="<?= $id[$i] ?>"><?= $id[$i] ?></option>
+      <?php endfor; ?>
+    </datalist>
     <div style="position: relative; left: 0; top: 0; background-color: #122d86; width: 100%; height: 10vh;">
       <span></span>
+      <div class="col s12 m6 input-field" style="width: 30%;">
+        <a href="./admin" class="btn blue" style="width:100%;">
+          Volver
+        </a>
+      </div>
     </div>
     <main class="valign-wrapper">
       <div class="container">
@@ -30,11 +54,14 @@
         </div>
         <form id="formRegistro" autocomplete="on">
           <div class="row">
-            <p>Ingrese la boleta del docente que desea modificar sus datos (OBLIGATORIO si es que quiere proceder).</p>
+            <p>Ingrese el id del docente que desea modificar sus datos (OBLIGATORIO si es que quiere proceder).</p>
             <div class="col s12 m6 l3 input-field">
               <i class="fas fa-id-card-alt prefix"></i>
-              <label for="Boleta">Boleta del docente</label>
-              <input type="text" id="Boleta" name="Boleta del docente" autocomplete="cc-number">
+              <label for="Boleta">ID del docente</label>
+              <input list="ids_pos" type="text" id="Boleta" name="Boleta del docente" autocomplete="cc-number">
+            </div>
+            <div class="col s12 m6 l3">
+              <div class="btn blue" id="searchids">Buscar</div>
             </div>
           </div>
         </form>
@@ -48,13 +75,13 @@
             </div>
             <div class="col s12 m6 l3 input-field">
               <i class="fas fa-user-friends	prefix"></i>
-              <label for="Apellido Paterno">Apellido Paterno</label>
-              <input type="text" id="Apellido Paterno" name="Apellido Paterno" autocomplete="cc-family-name">
+              <label for="ApellidoPaterno">Apellido Paterno</label>
+              <input type="text" id="ApellidoPaterno" name="ApellidoPaterno" autocomplete="cc-family-name">
             </div>
             <div class="col s12 m6 l3 input-field">
               <i class="fas fa-user-friends prefix"></i>
-              <label for="Apellido Materno">Apellido Materno</label>
-              <input type="text" id="Apellido Materno" name="Apellido Materno" autocomplete="cc-family-name">
+              <label for="ApellidoMaterno">Apellido Materno</label>
+              <input type="text" id="ApellidoMaterno" name="ApellidoMaterno" autocomplete="cc-family-name">
             </div>
             <div class="row">
             <div class="col s12 m6 l4 input-field">
