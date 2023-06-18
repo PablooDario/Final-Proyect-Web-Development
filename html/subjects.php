@@ -347,7 +347,7 @@
           <div class="row">
             <div class="col s1 m1 l1"><h5>1</h5></div>
             <div class="col s7 m7 l7">
-              <input type="text" value="PREPARACIÓN DE CLASES" placeholder="PREPARACIÓN DE CLASES" id="actividad1" name="actividad1" disabled>
+              <input type="text" value="101" placeholder="PREPARACIÓN DE CLASES" id="actividad1" name="actividad1" disabled>
             </div>
             <div class="col s4 m4 l4">
               <input type="number" id="horas1" name="horas1" placeholder="0" min="1" value="0">
@@ -357,7 +357,7 @@
           <div class="row">
             <div class="col s1 m1 l1"><h5>2</h5></div>
             <div class="col s7 m7 l7">
-              <input type="text" value="ATENCIÓN A ALUMNOS" placeholder="ATENCIÓN A ALUMNOS" id="actividad2" name="actividad2" disabled>
+              <input type="text" value="103" placeholder="ATENCIÓN A ALUMNOS" id="actividad2" name="actividad2" disabled>
             </div>
             <div class="col s4 m4 l4">
               <input type="number" id="horas2" name="horas2" placeholder="0" min="1" value="0">
@@ -376,7 +376,7 @@
               </select>
             </div>
             <div class="col s4 m4 l4">
-              <input type="number" id="horas3" name="horas3" placeholder="0" min="1" value="0">
+              <input type="number" id="horas3" name="horas3" placeholder="0" value="0">
             </div>
           </div>
           <!-----Actividad 4-->
@@ -391,7 +391,7 @@
               </select>
             </div>
             <div class="col s4 m4 l4">
-              <input type="number" id="horas4" name="horas4" placeholder="0" value="0" min="1">
+              <input type="number" id="horas4" name="horas4" placeholder="0" value="0">
             </div>
           </div>
           <!-----Actividad 5-->
@@ -406,7 +406,7 @@
               </select>
             </div>
             <div class="col s4 m4 l4">
-              <input type="number" id="horas5" name="horas5" placeholder="0" value="0" min="1">
+              <input type="number" id="horas5" name="horas5" placeholder="0" value="0">
             </div>
           </div>
         </div>
@@ -416,9 +416,7 @@
             <div class="col s4 m4 l4 btn" id="regresar" style="background-color: #122d86;">
               Regresar
             </div>
-            <div class="col s8 m8 l8">
-              <button type="submit" class="btn red" id="final">Finalizar Registros</button>
-            </div>
+            <div class="col s8 m8 l8 btn red" id="final">Finalizar Registros</div>
           </div>
         </div>
       </div>

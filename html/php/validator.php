@@ -13,12 +13,12 @@
                 $respAX["cod"] = 0;
                 $respAX["msj"] = "Ya contestaste esta encuesta";
                 $respAX["icono"] = "info";
-                $respAX["pathto"] = "home";
+                $respAX["pathto"] = "pdf";
             }else{
                 $respAX["cod"] = 0;
-                $respAX["msj"] = "No le muevas nada";
+                $respAX["msj"] = "No puedes interactuar con este formulario";
                 $respAX["icono"] = "info";
-                $respAX["pathto"] = "./";
+                $respAX["pathto"] = "./admin";
             }
         }else{
             $respAX["cod"] = 0;

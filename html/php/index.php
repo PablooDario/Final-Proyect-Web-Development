@@ -17,7 +17,7 @@
         if($numFilasRes == 1){
             $infCheckLogin = mysqli_fetch_row($resp);
             if($infCheckLogin[7] == 0) $respAX["pathto"] = 'subjects';
-            if($infCheckLogin[7] == 1) $respAX["pathto"] = 'home';
+            if($infCheckLogin[7] == 1) $respAX["pathto"] = 'pdf';
             if($infCheckLogin[7] == 2) $respAX["pathto"] = 'admin'; 
             $respAX["cod"] = 1;
             $respAX["msj"] = "Hola! Bienvenido $infCheckLogin[1] $infCheckLogin[2].";
@@ -25,6 +25,7 @@
             $_SESSION["user"] = $infCheckLogin[1].' '.$infCheckLogin[2];
             $_SESSION["auth"] = $infCheckLogin[7];
             $_SESSION["path"] = $respAX["pathto"];
+            $_SESSION["pos"] = $infCheckLogin[0];
           }else{
             $respAX["cod"] = 0;
             $respAX["msj"] = "Ocurrio un error";

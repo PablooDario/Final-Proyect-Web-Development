@@ -31,7 +31,6 @@ $(document).ready(function(){ //Valida si el usuario ha iniciado sesion
         success: function(respAX){
             let AX = JSON.parse(respAX);
             const select = document.querySelector('select#materia'+num);
-            console.log(select);
             for(var i=0;i<AX.counter;i++)
             {
                 let newOption = new Option(AX.name[i], AX.id[i]);
@@ -106,15 +105,35 @@ function sumHoras()
     sum+=parseInt(document.querySelector("#horas2").value)
     sum+=parseInt(document.querySelector("#horas3").value)
     sum+=parseInt(document.querySelector("#horas4").value)
-    var mat1= document.querySelector("#materia1").value
-
+    sum+=parseInt(document.querySelector("#horas5").value)
+    const materias = [];
+    const mats = []; 
+    var checker = 0;
+    for(var i=0;i<4;i++) materias[i] = document.querySelector("#materia"+(i+1)).value;
+    for(var i=4;i<6;i++) materias[i] = document.querySelector("#materiaE"+(i-3)).value;
+    for(var i=0;i<6;i++){
+        if(materias[i] != ""){
+            mats[checker] = materias[i];
+            checker++;
+        }
+    }
+    const acts = [];
+    const acps = [];
+    var tempcc = 0;
+    for(var i=0;i<5;i++){ acts[i] = document.querySelector("#actividad"+(i+1)).value};
+    for(var i=0;i<5;i++){
+        if(acts[i] != ""){
+            acps[tempcc] = acts[i];
+            tempcc++;
+        }
+    }
     //Si el numero de horas es menor a 22, mayor a 1 y selecciono por lo menos 1 materia, sale un sweetalert
-    if (sum>1 && sum<= 22 && mat1!=="") 
+    if (sum>1 && sum<= 22 && checker>0) 
     {
         $.ajax({
             url:"./php/upsubs.php",
             method:"POST",
-            data:$("form#Login").serialize(),
+            data: {materias: mats, actividad: acps, canmat: checker, canact: tempcc, sumhour: sum},
             cache:false,
             success:(respAX)=>{
               let AX = JSON.parse(respAX);
@@ -126,9 +145,9 @@ function sumHoras()
                   if(AX.cod == 0)
                     location.reload();
                   else
-                    location.href = AX.pathto;
+                    location.href = AX.pathto
                 }
-              });
+              }); // sweetAlert/
             }
           });
     } 
@@ -137,7 +156,7 @@ function sumHoras()
     {
         Swal.fire({
         title: 'Registro incompleto',
-        text: 'Porfavor asegurese que la suma de las horas semanales sea mayor a 1, menor a 22 y que haya seleccionado por lo menos 1 materia en la sección anterior',
+        text: 'Por favor asegurese que la suma de las horas semanales sea mayor a 1, menor a 22 y que haya seleccionado por lo menos 1 materia en la sección anterior, Materias: '+checker+' Suma:'+sum,
         icon: 'error'
         });
     }
