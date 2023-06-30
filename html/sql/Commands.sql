@@ -10,7 +10,7 @@ Correo varchar(30) not null,
 Depto varchar(10) not null,
 Pwd varchar(20) not null,
 Encuesta integer not null default 0,
-Comprobante Varchar (500),
+Reseteo bool default 0,
 constraint cveUsuario primary key(IDuser));
 
 create table materia(
@@ -537,8 +537,9 @@ insert into usuario (IDUser, Nombre, APP, APM, Correo, Depto, Pwd, Encuesta) VAL
 
 
 ------------------------------ACTIVIDADES---------------------------
+
 insert into actividad (IDact, descripcion) VALUES
-("102", "PREPARACIÓN DE CLASES"),
+("101", "PREPARACIÓN DE CLASES"),
 ("103", "ATENCIÓN A ALUMNOS"),
 ("104", "ELABORACIÓN DE EXÁMENES"),
 ("105", "EVALUACIÓN DE EXÁMENES"),
